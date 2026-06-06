@@ -1,0 +1,94 @@
+<?php use Fisharebest\Webtrees\I18N; ?>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h2><?= I18N::translate('All Ages Export Engine') ?></h2>
+        <p class="text-muted">
+            <?= I18N::translate('Export a concise list of all individuals in a tree with birth and death dates.') ?>
+        </p>
+    </div>
+
+    <div class="card-body">
+        <form method="post" action="<?= e(route('module', ['module' => $module_name, 'action' => 'Admin'])) ?>">
+            <?= csrf_field() ?>
+
+            <!-- Tree Selection -->
+            <div class="form-group row mb-3">
+                <label class="col-sm-3 col-form-label" for="tree_id">
+                    <?= I18N::translate('Select Tree') ?>
+                </label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="tree_id" name="tree_id">
+                        <?php foreach ($tree_list as $id => $name) : ?>
+                            <option value="<?= e($id) ?>"><?= e($name) ?></option>
+                        <?php endforeach ?>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Sort Order -->
+            <div class="form-group row mb-3">
+                <label class="col-sm-3 col-form-label">
+                    <?= I18N::translate('Sort Order') ?>
+                </label>
+                <div class="col-sm-9">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sort_order" id="sort_last" value="last_name" checked>
+                        <label class="form-check-label" for="sort_last">
+                            <?= I18N::translate('Last Name') ?>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sort_order" id="sort_first" value="first_name">
+                        <label class="form-check-label" for="sort_first">
+                            <?= I18N::translate('First Name') ?>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sort_order" id="sort_birth" value="birth_date">
+                        <label class="form-check-label" for="sort_birth">
+                            <?= I18N::translate('Birth Date') ?>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Export Format -->
+            <div class="form-group row mb-3">
+                <label class="col-sm-3 col-form-label">
+                    <?= I18N::translate('Export Format') ?>
+                </label>
+                <div class="col-sm-9">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="export_type" id="export_tsv" value="tsv" checked>
+                        <label class="form-check-label" for="export_tsv">
+                            <?= I18N::translate('TSV (Tab Separated Values)') ?>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="export_type" id="export_csv" value="csv">
+                        <label class="form-check-label" for="export_csv">
+                            <?= I18N::translate('CSV (Excel / Numbers)') ?>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="export_type" id="export_print" value="print">
+                        <label class="form-check-label" for="export_print">
+                            <?= I18N::translate('Print View') ?>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-3">
+                    <button type="submit" class="btn btn-primary">
+                        <?= I18N::translate('Generate Export') ?>
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

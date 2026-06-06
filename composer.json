@@ -1,0 +1,22 @@
+{
+    "name": "billkochman/all-ages-export-engine",
+    "description": "A clean, simple admin utility for exporting a concise list of all individuals in a Webtrees family tree, including first name, last name, birth date and death date.",
+    "keywords": [
+        "webtrees",
+        "genealogy",
+        "export",
+        "individuals",
+        "admin"
+    ],
+    "type": "webtrees-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bill Kochman",
+            "homepage": "https://github.com/0ldM4cM4n"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    }
+}

@@ -1,0 +1,106 @@
+<?php use Fisharebest\Webtrees\I18N; ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title><?= I18N::translate('All Ages Export Engine') ?></title>
+    <style>
+        body {
+            font-family: Monaco, monospace;
+            font-size: 11pt;
+            margin: 0.75in;
+            color: #000;
+        }
+        h1 {
+            font-size: 14pt;
+            margin-bottom: 4px;
+        }
+        p.subtitle {
+            font-size: 10pt;
+            color: #555;
+            margin-bottom: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10pt;
+        }
+        thead th {
+            border-bottom: 2px solid #000;
+            text-align: left;
+            padding: 4px 8px;
+            font-weight: bold;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+        tbody td {
+            padding: 3px 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        @media print {
+            body {
+                margin: 0.5in;
+            }
+            tbody tr:nth-child(even) {
+                background-color: #f5f5f5 !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1><?= I18N::translate('All Ages Export Engine') ?></h1>
+    <p class="subtitle">
+        <?= I18N::translate('Tree') ?>: <?= e($tree->title()) ?>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <?= I18N::translate('Generated') ?>: <?= date('Y-m-d') ?>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <?= I18N::translate('Total Individuals') ?>: <?= count($individuals) ?>
+    </p>
+    <table>
+        <thead>
+            <tr>
+                <?php if ($sort_order === 'first_name') : ?>
+                    <th><?= I18N::translate('First Name') ?></th>
+                    <th><?= I18N::translate('Last Name') ?></th>
+                    <th><?= I18N::translate('Birth Date') ?></th>
+                    <th><?= I18N::translate('Death Date') ?></th>
+                <?php elseif ($sort_order === 'birth_date') : ?>
+                    <th><?= I18N::translate('Birth Date') ?></th>
+                    <th><?= I18N::translate('Last Name') ?></th>
+                    <th><?= I18N::translate('First Name') ?></th>
+                    <th><?= I18N::translate('Death Date') ?></th>
+                <?php else : ?>
+                    <th><?= I18N::translate('Last Name') ?></th>
+                    <th><?= I18N::translate('First Name') ?></th>
+                    <th><?= I18N::translate('Birth Date') ?></th>
+                    <th><?= I18N::translate('Death Date') ?></th>
+                <?php endif ?>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($individuals as $individual) : ?>
+                <tr>
+                    <?php if ($sort_order === 'first_name') : ?>
+                        <td><?= e($individual['first_name']) ?></td>
+                        <td><?= e($individual['last_name']) ?></td>
+                        <td><?= e($individual['birth_date']) ?></td>
+                        <td><?= e($individual['death_date']) ?></td>
+                    <?php elseif ($sort_order === 'birth_date') : ?>
+                        <td><?= e($individual['birth_date']) ?></td>
+                        <td><?= e($individual['last_name']) ?></td>
+                        <td><?= e($individual['first_name']) ?></td>
+                        <td><?= e($individual['death_date']) ?></td>
+                    <?php else : ?>
+                        <td><?= e($individual['last_name']) ?></td>
+                        <td><?= e($individual['first_name']) ?></td>
+                        <td><?= e($individual['birth_date']) ?></td>
+                        <td><?= e($individual['death_date']) ?></td>
+                    <?php endif ?>
+                </tr>
+            <?php endforeach ?>
+        </tbody>
+    </table>
+</body>
+</html>
