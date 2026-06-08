@@ -23,7 +23,7 @@ This module should work with webtrees 2.1.x but has not been explicitly tested.
 ### webtrees 2.0 and lower
 This module **will not work** with webtrees versions lower than 2.1.
 
-## Installation instructions
+## Installation Instructions
 1. Download the zip archive of this repository from GitHub.
 2. Unzip the archive.
 3. Place the entire `all-ages-export-engine` folder into the `modules_v4` directory on your server.
@@ -33,7 +33,7 @@ This module **will not work** with webtrees versions lower than 2.1.
 1. Go to the **Control Panel**.
 2. Find **All Ages Export Engine** in the modules list and click the **wrench** icon next to it.
 3. Select a family tree from the dropdown.
-4. Choose a sort order (see **Notes on Sort Orders** below).
+4. Choose a sort order (see **Notes On Sort Orders** below).
 5. Choose an export format (see **Export Formats** below).
 6. Click **Generate Export**.
 
@@ -48,7 +48,7 @@ Produces a standard comma-separated values file optimized for use in spreadsheet
 ### Print View
 Displays the exported list as a formatted, printer-friendly HTML page within your Webtrees browser window. It does not send anything directly to a printer. If you wish to produce a physical printed copy, use your web browser's built-in print function (File → Print, or Cmd+P / Ctrl+P) once the Print View is displayed on screen. A printer must be connected to your device to print a hard copy.
 
-## Notes on Sort Orders
+## Notes On Sort Orders
 
 ### Last Name
 Sorts alphabetically by last name, with first name as a tiebreaker. This is the default sort order and is recommended for most use cases, as it groups family members together and avoids having to sift through large numbers of individuals with the same first name.
@@ -59,28 +59,28 @@ Sorts alphabetically by first name. The first name column will appear first in t
 ### Birth Date
 Due to the many different ways in which users enter birth date information — including exact dates, approximate dates (e.g. "about 1534"), date ranges (e.g. "between 1580 and 1581"), and partial dates (e.g. "February 1612") — it is not practical to sort by the full date string. Instead, the Birth Date sort extracts the first four-digit year found in the birth date field and sorts numerically by that year. Individuals with no birth date recorded will appear at the end of the list. The birth date column will appear first in the export output.
 
-## Notes on Output Formatting
+## Notes On Output Formatting
 Due to the wide variety of ways in which different users enter data into Webtrees records, the exported output may not always be perfectly aligned in text files. Factors such as inconsistent naming conventions, unusually long names, extended date ranges, and incomplete records are beyond the control of this module. We have done our best to produce clean, readable output, but some manual adjustment may occasionally be necessary.
 
 To help preserve column alignment, any field entry exceeding 30 characters in length will be automatically truncated and followed by an ellipsis (…). This applies primarily to birth and death date fields where users have entered extended date ranges.
 
-## Notes on Unknown Names
+## Notes On Unknown Names
 Where a user has left the first name field empty in a record, it will be replaced in the export with **[first name unknown]**. Where a user has left the last name field empty, it will be replaced with **[last name unknown]**. In cases where a user has left both fields empty in a record, both replacements will apply, resulting in **[first name unknown]** and **[last name unknown]** appearing in their respective columns.
 
-## Known limitations
-- Due to the wide variety of data entry styles used by different users, perfect column alignment in text exports cannot always be guaranteed. See **Notes on Output Formatting** above.
-- Birth Date sorting is based on year only. See **Notes on Sort Orders** above.
+## Known Limitations
+- Due to the wide variety of data entry styles used by different users, perfect column alignment in text exports cannot always be guaranteed. See **Notes On Output Formatting** above.
+- Birth Date sorting is based on year only. See **Notes On Sort Orders** above.
 
-## Upgrade safety
+## Upgrade Safety
 This module operates entirely within the Webtrees module system. No core Webtrees files are modified.
 
-## Privacy, telemetry, tracking
+## Privacy, Telemetry, Tracking
 Privacy: yes. Tracking: no.
 
 The module will check for the latest available version whenever the Webtrees Control Panel is opened. It checks a URL on github.com only.
 
 ## Credits
-Developed by Bill Kochman.
+Developed by Bill Kochman with assistance from Claude (Anthropic).
 
 ## License
 Copyright (C) 2026 Bill Kochman.
