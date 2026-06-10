@@ -1,6 +1,7 @@
 ![B&C Mods](https://raw.githubusercontent.com/0ldM4cM4n/all-ages-export-engine/main/assets/images/B-C-Mods-Logo-02-optimized.png)
 
 # all-ages-export-engine
+**Version 1.0.0**
 
 This [webtrees](https://www.webtrees.net) module is a clean, simple admin utility that exports a concise list of all individuals in a family tree, displaying four fields only: Last Name, First Name, Birth Date, and Death Date.
 
